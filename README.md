@@ -54,3 +54,24 @@ http://127.0.0.1:8000/swagger/
 
 Para rodar os testes, na pasta myapi rode:
 python manage.py test
+
+## CLI
+
+O CLI uma ferramenta para importar os cards de um arquivo CSV e os cadastrar no banco via API, portanto, para utilizá-lo é necessário que a API esteja rodando
+
+Caso o CLI esteja rodando em outra máquina ou virtualenv diferente do backend, é necessário instalar o [Download Python](https://www.python.org/downloads/), e posteriormente instalar a dependência:
+```
+python -m pip install requests
+```
+
+Após isso basta rodar 
+```
+ImportCards.py <caminho_do_arquivo> <url_api>
+```
+
+Por exemplo:
+```
+ImportCards.py cards.csv http://algumhost:8000/api/v1/cards/
+```
+
+O primeiro parâmetro é obrigatório, uma vez que o caminho do arquivo. Já o segundo é opcional, e caso não seja informado, enviará as requisições para http://127.0.0.1:8000/api/v1/cards/
