@@ -37,23 +37,23 @@ class TagDetail(mixins.RetrieveModelMixin,
 class CardList(mixins.ListModelMixin,
                  mixins.CreateModelMixin,
                  generics.GenericAPIView):
-    queryset = Card.objects.all().order_by('data_modificacao')
+    queryset = Card.objects.all().order_by('data_modificacao').reverse()
     serializer_class = CardSerializer
     pagination_class = CardPagination
 
     def get_queryset(self):
-        queryset = Card.objects.all().order_by('data_modificacao')
+        queryset = Card.objects.all().order_by('data_modificacao').reverse()
         tags = self.request.query_params.get('tags')
         print(tags)
         if tags is not None:
             tags = tags.split(',')
-            queryset = queryset.filter(tags__pk__in=tags)
+            queryset = queryset.filter(tags__nome__in=tags)
         return queryset
 
     tagParam = openapi.Parameter('tags', 
         in_=openapi.IN_QUERY, description='description', 
         type=openapi.TYPE_ARRAY,
-        items=openapi.Items(type=openapi.TYPE_INTEGER)
+        items=openapi.Items(type=openapi.TYPE_STRING)
     )
     @swagger_auto_schema(
         operation_description="description from swagger_auto_schema via method_decorator",
