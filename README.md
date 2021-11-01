@@ -1,3 +1,4 @@
+Essa é uma API desenvolvida para a aplicação Insights, e tem funções para cadastrar, consultar, atualizar e remover cards e tags da aplicação. A API foi desenvolvida em Python utilizando Django com o auxílio do Django REST Framework.
 
 ## Rodando o projeto
 
