@@ -7,12 +7,17 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = ('id', 'nome')
+
+class TagSerializerForCard(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ('id', 'nome')
         extra_kwargs = {
             'nome': {'validators': []},
         }
 
 class CardSerializer(serializers.ModelSerializer):
-    tags = TagSerializer(many=True, read_only=False)
+    tags = TagSerializerForCard(many=True, read_only=False)
 
     class Meta:
         model = Card
