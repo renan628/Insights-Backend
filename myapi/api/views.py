@@ -44,19 +44,17 @@ class CardList(mixins.ListModelMixin,
     def get_queryset(self):
         queryset = Card.objects.all().order_by('data_modificacao').reverse()
         tags = self.request.query_params.get('tags')
-        print(tags)
         if tags is not None:
             tags = tags.split(',')
-            queryset = queryset.filter(tags__nome__in=tags)
+            queryset = queryset.filter(tags__nome__in=tags).distinct()
         return queryset
 
     tagParam = openapi.Parameter('tags', 
-        in_=openapi.IN_QUERY, description='description', 
+        in_=openapi.IN_QUERY, description='tags names to filter cards by tags', 
         type=openapi.TYPE_ARRAY,
         items=openapi.Items(type=openapi.TYPE_STRING)
     )
     @swagger_auto_schema(
-        operation_description="description from swagger_auto_schema via method_decorator",
         manual_parameters=[tagParam]
     )
     def get(self, request, *args, **kwargs):

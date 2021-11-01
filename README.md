@@ -1,7 +1,7 @@
 
 ## Rodando o projeto
 
-**Por favor rode os comandos listados com permissões de adminstrador**
+### Backend
 
 É necessário que a máquina tenha o python 3.8 ou posterior instalado, veja como aqui:
 [Download Python](https://www.python.org/downloads/)
@@ -77,3 +77,43 @@ ImportCards.py cards.csv http://algumhost:8000/api/v1/cards/
 ```
 
 O primeiro parâmetro é obrigatório, uma vez que o caminho do arquivo. Já o segundo é opcional, e caso não seja informado, enviará as requisições para http://127.0.0.1:8000/api/v1/cards/
+
+## Frontend
+
+Primeiramente é necessário ter o [Node e NMP](https://nodejs.org/en/download/) 
+
+Na pasta Frontend que foi extraida do projeto, abra um terminal e execute
+
+```
+npm install
+```
+
+Isso irá instalar todas as dependências do projeto
+
+### Para subir em modo debug/desenvolvimento
+
+Ainda no terminal na pasta projeto, rode:
+
+```
+npm start
+```
+
+A aplicação então, subirá na porta 3000
+
+### Para subir em modo de uso real
+
+Primeiramente rode
+```
+npm run build
+```
+Agora é necessário instalar um servidor simples para rodar a aplicação, mas esse isso só precisa ser feito uma única vez
+```
+npm install -g serve
+```
+
+E por fim, servir a aplicação, que deve iniciar na porta 5000
+```
+serve -s build
+```
+
+Essa é claro, uma solução simples. É possível servir a aplicação em algum servidor web conhecido, como por exemplo o [NGINX](https://www.nginx.com/)
