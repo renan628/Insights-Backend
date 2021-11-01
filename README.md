@@ -1,7 +1,7 @@
 
 ## Rodando o projeto
 
-### Backend
+**Por favor rode os comandos listados com permissões de adminstrador**
 
 É necessário que a máquina tenha o python 3.8 ou posterior instalado, veja como aqui:
 [Download Python](https://www.python.org/downloads/)
@@ -29,7 +29,7 @@ Com isso o banco de dados foi devidamente criado e está pronto para a aplicaç�
 
 Para subir em modo desenvolvimento rode:
 ```
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000
 ```
 
 Se tudo ocorreu bem, a API já está disponível para uso, rodando na porta 8000
@@ -40,19 +40,20 @@ São necessárias alguma modificações no arquivo **settings.py**
 
 - Primeiramente é necessário definir a flag de *DEBUG* para *FALSE*
 
-- Depois é necessário passar um novo valor ao campo *SECRET_KEY*, que recomendadamente deve ser carregado de um arquivo interno ao servidor
-
-- Por fim a lista *ALLOWED_HOSTS* deve receber nomes dos hosts que estão habilitados a se comunicar com a API. Use *'127.0.0.1'* e *'localhost'* se as requisições apenas da própria máquina, use *'*'* para aceitar requisições de qualquer origem
+- Em um caso de subir de fato para produção *altamente recomendado* passar um novo valor ao campo *SECRET_KEY*
 
 Agora rode:
 ```
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000
 ```
 
 Se tudo ocorreu bem, a API já está disponível para uso, rodando na porta 8000
 
+Por fim, em ambos os casos, a lista *ALLOWED_HOSTS* deve receber nomes dos hosts que estão habilitados a se comunicar com a API. Use *'127.0.0.1'* e *'localhost'* se as requisições vierem apenas da própria máquina, mas como se trata de uma API web, use '*' para aceitar requisições de qualquer origem
+
 Para ver a documentação da API, acesse:
 http://127.0.0.1:8000/swagger/
+**A documentação swagger só será acessível com a flag DEBUG de desenvolvimento igual a TRUE**
 
 Para rodar os testes, na pasta myapi rode:
 python manage.py test
@@ -77,43 +78,3 @@ ImportCards.py cards.csv http://algumhost:8000/api/v1/cards/
 ```
 
 O primeiro parâmetro é obrigatório, uma vez que o caminho do arquivo. Já o segundo é opcional, e caso não seja informado, enviará as requisições para http://127.0.0.1:8000/api/v1/cards/
-
-## Frontend
-
-Primeiramente é necessário ter o [Node e NMP](https://nodejs.org/en/download/) 
-
-Na pasta Frontend que foi extraida do projeto, abra um terminal e execute
-
-```
-npm install
-```
-
-Isso irá instalar todas as dependências do projeto
-
-### Para subir em modo debug/desenvolvimento
-
-Ainda no terminal na pasta projeto, rode:
-
-```
-npm start
-```
-
-A aplicação então, subirá na porta 3000
-
-### Para subir em modo de uso real
-
-Primeiramente rode
-```
-npm run build
-```
-Agora é necessário instalar um servidor simples para rodar a aplicação, mas esse isso só precisa ser feito uma única vez
-```
-npm install -g serve
-```
-
-E por fim, servir a aplicação, que deve iniciar na porta 5000
-```
-serve -s build
-```
-
-Essa é claro, uma solução simples. É possível servir a aplicação em algum servidor web conhecido, como por exemplo o [NGINX](https://www.nginx.com/)
