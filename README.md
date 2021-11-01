@@ -53,11 +53,15 @@ Se tudo ocorreu bem, a API já está disponível para uso, rodando na porta 8000
 Por fim, em ambos os casos, a lista *ALLOWED_HOSTS* deve receber nomes dos hosts que estão habilitados a se comunicar com a API. Use *'127.0.0.1'* e *'localhost'* se as requisições vierem apenas da própria máquina, mas como se trata de uma API web, use '*' para aceitar requisições de qualquer origem
 
 Para ver a documentação da API, acesse:
+
 http://127.0.0.1:8000/swagger/
+
 **A documentação swagger só será acessível com a flag DEBUG de desenvolvimento igual a TRUE**
 
 Para rodar os testes, na pasta insights_api rode:
+```
 python manage.py test
+```
 
 ## CLI
 
