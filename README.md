@@ -1,6 +1,8 @@
 
 ## Rodando o projeto
 
+**Por favor rode os comandos listados com permissões de adminstrador**
+
 É necessário que a máquina tenha o python 3.8 ou posterior instalado, veja como aqui:
 [Download Python](https://www.python.org/downloads/)
 
