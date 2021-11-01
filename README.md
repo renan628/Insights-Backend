@@ -18,7 +18,7 @@ python -m pip install -r requirements.txt
 
 Pronto. O pip já instalou as dependências.
 
-Agora, para subir o backend, vá com um terminal na pasta myapi e rode os comandos:
+Agora, para subir o backend, vá com um terminal na pasta insights_api e rode os comandos:
 ```
 python manage.py makemigrations
 python manage.py migrate
@@ -56,7 +56,7 @@ Para ver a documentação da API, acesse:
 http://127.0.0.1:8000/swagger/
 **A documentação swagger só será acessível com a flag DEBUG de desenvolvimento igual a TRUE**
 
-Para rodar os testes, na pasta myapi rode:
+Para rodar os testes, na pasta insights_api rode:
 python manage.py test
 
 ## CLI

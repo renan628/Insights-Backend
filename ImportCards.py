@@ -3,7 +3,6 @@ import sys
 import csv
 import requests
 
-#args = [arg for arg in sys.argv[1:] if not arg.startswith("-")]
 args = sys.argv[1:]
 numArgs = len(args)
 apiURL = 'http://127.0.0.1:8000/api/v1/cards/'
