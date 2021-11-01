@@ -70,7 +70,7 @@ class CardDetail(mixins.RetrieveModelMixin,
                    mixins.UpdateModelMixin,
                    mixins.DestroyModelMixin,
                    generics.GenericAPIView):
-    queryset = Card.objects.all().order_by('data_modificacao')
+    queryset = Card.objects.all().order_by('-data_modificacao')
     serializer_class = CardSerializer
 
     def get(self, request, *args, **kwargs):
